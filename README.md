@@ -5,11 +5,11 @@
 Create a secondary style based on the text, so in the example it will use the style for all strings which matches the pattern, and use the secondary style if some of the string matches the one on the flags
 
 So in the example `Teste $PETR $IBOV $BTC $OTHERS`
-$PETR $IBOV $BTC $OTHERS matches the style
-$PETR uses style from flag a
-$IBOV uses style from flag b
-$BTC uses style from flag c
-$OTHERS uses the default style
+- $PETR $IBOV $BTC $OTHERS matches the style
+- $PETR uses style from flag a
+- $IBOV uses style from flag b
+- $BTC uses style from flag c
+- $OTHERS uses the default style
 ```
 <ParsedText
   parse={
