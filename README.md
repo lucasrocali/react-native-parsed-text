@@ -2,7 +2,7 @@
 
 ## Changes
 
-![Alt text](img.jpg "Example")
+![Alt text](img1.jpg "Example")
 
 Create a secondary style based on the text, so in the example it will use the style for all strings which matches the pattern, and use the secondary style if some of the string matches the one on the flags
 
