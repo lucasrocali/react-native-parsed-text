@@ -62,6 +62,15 @@ class ParsedText extends React.Component {
     const textExtraction = new TextExtraction(this.props.children, this.getPatterns());
 
     return textExtraction.parse().map((props, index) => {
+      console.log('props index', props, index)
+      if (props.styles) {
+          var text = props.children
+          var matchKeys = Object.keys(props.flags).filter((key) => props.flags[key] == text)
+          var matchedKey = matchKeys && matchKeys[0] ? matchKeys[0] : null
+          var matchStyle = matchedKey && props.styles[matchedKey] ? props.styles[matchedKey] : props.style
+          console.log('vars', text, matchKeys, matchedKey, matchStyle)
+          props.style = matchStyle
+      }
       return (
         <ReactNative.Text
           key={`parsedText-${index}`}
