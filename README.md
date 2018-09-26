@@ -2,16 +2,15 @@
 
 ## Changes
 
-![Alt text](img1.jpg "Example")
+![Alt text](img2.jpg "Example")
 
 Create a secondary style based on the text, so in the example it will use the style for all strings which matches the pattern, and use the secondary style if some of the string matches the one on the flags
 
-So in the example `Teste $PETR $IBOV $BTC $OTHERS`
-- $PETR $IBOV $BTC $OTHERS matches the style
-- $PETR uses style from flag a
-- $IBOV uses style from flag b
-- $BTC uses style from flag c
-- $OTHERS uses the default style
+So in the example `Testing #AB #CD #EF #Others #asd #sdasd`
+- #AB #CD #EF #Others #asd #sdasdmatches the style
+- #AB and #CD uses style from flag positive
+- #EF uses style from flag negative
+- #Others #asd #sdasdS uses the default style
 ```
 <ParsedText
   parse={
@@ -23,24 +22,17 @@ So in the example `Teste $PETR $IBOV $BTC $OTHERS`
                   backgroundColor: '#0000FF55'
               },
               styles: {
-                  a: {
-                      color: '#999',
-
-                  },
-                  b: {
-                      color: '#333',
-                      backgroundColor: '#AAA'
-
-                  },
-                  c: {
-                      color: '#FF0000'
-                  }
+                    positive: {
+                        color: '#999',
+                    },
+                    negative: {
+                        color: '#FF0000'
+                    }
               },
               flags: {
-                  a: ['$PETR'],
-                  b: ['$IBOV'],
-                  c: ['$BTC']
-              }
+                    positive: ['#AB', '#CD'],
+                    negative: ['#EF'],
+                }
           },
       ]
   }
